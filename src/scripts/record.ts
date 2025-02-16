@@ -1,33 +1,54 @@
 import type { Task, Tasks } from "./types";
 
 export function setTask(task: Task) {
-    const rawData = localStorage.getItem('TasksData')
-    if (rawData != null) {
-        const tasksData: {tasks: Tasks} = JSON.parse(rawData);
-        tasksData.tasks.push(task);
-        localStorage.setItem('TasksData', JSON.stringify(tasksData));
-    } else{
-        const tasksData: {tasks: Tasks} = {tasks: []};
-        tasksData.tasks.push(task);
-        localStorage.setItem('TasksData', JSON.stringify(tasksData));
-    };
-}
-
+        if(task.title.length <= 0){
+            alert("タイトルを入力してください")
+        }else if (task.content.length <= 0){
+            alert("テキストを入力してください")
+        }else if(task.title.length > 10){
+            alert("タイトルは10文字以内にしてください"+(task.title.length-10)+"文字オーバーしてます。")
+        }else if( task.content.length > 140){
+            alert("タイトルは10文字以内にしてください"+(task.content.length-140)+"文字オーバーしてます。")
+        }else{
+                const rawData = localStorage.getItem('TasksData')
+                task.id ++
+                console.log("タイトルは"+task.content)
+            if (rawData != null) {
+                const tasksData: {tasks: Tasks} = JSON.parse(rawData);
+                tasksData.tasks.push(task);
+                localStorage.setItem('TasksData', JSON.stringify(tasksData));
+            } else{
+                const tasksData: {tasks: Tasks} = {tasks: []};
+                tasksData.tasks.push(task);
+                localStorage.setItem('TasksData', JSON.stringify(tasksData));
+            };
+}}
+//titelは20文字以内、textは140以内に収めるとする。
 
 export function getTasks(): Tasks {
     const rawData = localStorage.getItem('TasksData')
     if (rawData == null) {
+        //task.id  = 0
         return []
     } else {
         const tasksData: {tasks: Tasks} = JSON.parse(rawData);
+        //task.id  =  task.id 
         return tasksData.tasks;
     };
+
 }
 
-//TasksData "tasks":{"title":"タイトル","content":"データ"}]
-export function deleteTask(){
-    localStorage.removeItem('TasksData');
 
-
+export function deleteTask(id:number){
+    const rawData = localStorage.getItem('TasksData')
+    //const rawData  = JSON.parse('TasksData');
+if(rawData == null){
+    alert("データがありません")
+}else{
+    console.log(id)
+    const tasksData: {tasks: Tasks} = JSON.parse(rawData);
+    tasksData.tasks = tasksData.tasks.filter(task => !(task.id === id));
+    localStorage.setItem('TasksData', JSON.stringify(tasksData));
+}
 
 }
