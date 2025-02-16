@@ -3,8 +3,6 @@ import type { Task, Tasks } from "./types";
 export function setTask(task: Task) {
         if(task.title.length <= 0){
             alert("タイトルを入力してください")
-        }else if (task.content.length <= 0){
-            alert("テキストを入力してください")
         }else if(task.title.length > 10){
             alert("タイトルは10文字以内にしてください"+(task.title.length-10)+"文字オーバーしてます。")
         }else if( task.content.length > 140){
@@ -28,11 +26,9 @@ export function setTask(task: Task) {
 export function getTasks(): Tasks {
     const rawData = localStorage.getItem('TasksData')
     if (rawData == null) {
-        //task.id  = 0
         return []
     } else {
         const tasksData: {tasks: Tasks} = JSON.parse(rawData);
-        //task.id  =  task.id 
         return tasksData.tasks;
     };
 
@@ -52,3 +48,18 @@ if(rawData == null){
 }
 
 }
+
+export function sortTask(){
+if (window.confirm("並べ変えますか？")){
+    const rawData = localStorage.getItem('TasksData')
+    if(rawData == null){
+        alert("データがありません")
+    }else{
+        const tasksData: {tasks: Tasks} = JSON.parse(rawData);
+        tasksData.tasks.sort((a,b) => a.title.localeCompare(b.title, 'ja'))
+        localStorage.setItem('TasksData', JSON.stringify(tasksData));
+    }
+}
+
+}//最後にloadtaskする
+

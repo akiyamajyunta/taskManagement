@@ -1,25 +1,36 @@
 .setPosition{
     width: 100%;
-    height: auto;
+    height: 100%;
     display: flex;
-    background-color: rgb(255, 0, 0);
+    position: relative;
     justify-content: center;
+} 
+.startField{
+background-color: chartreuse;
+width: 100%;
+justify-content: center;
+position: fixed;
 }
-
 .delete{
     position: absolute;
     left: 92%;
     display: flex;
     z-index: 10;
-    background-color: rgb(117, 255, 193);
+    background-color: rgba(117, 255, 193, 0);
 }
 .inputZoon{
     width:  500px ;
-    height: 300px;
-    position: relative;
+    top:22%;
+    height: 350px;
+    position: fixed;
     z-index: 100;
     display: flex;
-    background-color: rgba(255, 5, 5, 0.352);
+    background-color: rgb(216, 216, 216);
+
+}
+.InputAria{
+    width:  90%;
+    height: 80%;
 
 }
 
@@ -44,7 +55,7 @@
     width: 100%;
 }
 .photoField{
-background-color: rgba(255, 0, 0, 0.371);
+background-color: rgba(255, 0, 0, 0);
 position:absolute;
 display: flex;
 width: 8%;
