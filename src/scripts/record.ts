@@ -56,6 +56,7 @@ if (window.confirm("並べ変えますか？")){
         alert("データがありません")
     }else{
         const tasksData: {tasks: Tasks} = JSON.parse(rawData);
+        
         tasksData.tasks.sort((a,b) => a.title.localeCompare(b.title, 'ja'))
         localStorage.setItem('TasksData', JSON.stringify(tasksData));
     }

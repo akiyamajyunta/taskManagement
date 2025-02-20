@@ -15,7 +15,7 @@ import train from '../imgs/train.png'
 
 import another from '../imgs/another.png'
 
-// export const anotherImgs : string[] = [another, train ];
+export const ImgsCollection  = [bank, eat,game,garden ,hospital,job,look,sanpo,school,shop,train];
 
 
 export const photoCollection :{[key: string]: string}= {
