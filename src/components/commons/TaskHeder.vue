@@ -23,10 +23,7 @@
             
         </div>
 
-            
-
-       
-       
+    
     </v-card>
     <Transition>
         <menue-bar v-if="menubar"/>
@@ -34,22 +31,9 @@
 
 </template>
 
-
-
-
-
-
-
-
-
-
-
-
-
-  
 <script setup lang="ts">
-import { loadTasks, inputForum , menubar } from '@/scripts/input';
-import { sortTask } from '@/scripts/record';
+import {  inputForum , menubar} from '@/scripts/input';
+import { sorting } from '@/scripts/record';
 import menueBar from './sideBar.vue';
 import { sideBar } from '@/scripts/input';
 
@@ -58,10 +42,6 @@ function curtain(){
         inputForum.value  = true
 }
 
- function sorting(){
-    sortTask()
-    loadTasks()
-}
 
 </script>
 

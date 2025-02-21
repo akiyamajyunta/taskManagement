@@ -1,13 +1,4 @@
 <template>
-    <!-- <v-dialog v-model="dialog">
-        <v-card
-            title="Test"
-            text="this is test dialog"
-        />
-    </v-dialog>
-    <v-btn @click="dialog = true">Dialog</v-btn> -->
-
-    
     <div class="setPosition">  
             <TaskHeder/>
             <inputCardMain/>
@@ -16,26 +7,22 @@
                 <TaskType :taskType="taskAction[1]"/>
                 <TaskType :taskType="taskAction[2]"/>
             </div>
-            <inputForm/>
-            <!-- <ahoShine/> -->
-            <TaskCard/>
     </div>
 </template>
 
 <script setup lang="ts">
 import { loadTasks } from '@/scripts/input';
 import  TaskHeder from '../commons/TaskHeder.vue';
-import inputForm from '../commons/inputForm.vue';
-import TaskCard from '../commons/TaskCard.vue';
 import inputCardMain from '../commons/inputCardMain.vue';
 
 import TaskType from '../commons/TaskType.vue';
 
 import { onMounted } from 'vue';
-
+import { taskAction } from '@/scripts/input';
 
 onMounted(loadTasks);
-const taskAction = ["実行前","実行中","終了"]
+
+
 
 
 

@@ -1,9 +1,7 @@
-export type Task = {title: string, content: string ,date:Date , dateDisplay:boolean,good:string, action:string  ,id : number};
+export type Task = {title: string, content: string,star:number,
+                    date:Date, time:Date, particle : string,
+                    dateDisplay:boolean, timeDisplay:boolean,
+                    action:string  ,id : number, position : number };
 
 export type Tasks = Task[];
 
-
-const calenders  = new Date('mm/dd/yy');
-const year = calenders.getFullYear();
-const month = calenders.getMonth() + 1;
-const day = calenders.getDate();

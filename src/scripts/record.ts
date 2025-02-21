@@ -1,4 +1,6 @@
+import {  tasks,loadTasks } from "./input";
 import type { Task, Tasks } from "./types";
+import { task } from "./input";
 
 export function setTask(task: Task) {
         if(task.title.length <= 0){
@@ -10,7 +12,6 @@ export function setTask(task: Task) {
         }else{
                 const rawData = localStorage.getItem('TasksData')
                 task.id ++
-                console.log("タイトルは"+task.content)
             if (rawData != null) {
                 const tasksData: {tasks: Tasks} = JSON.parse(rawData);
                 tasksData.tasks.push(task);
@@ -31,23 +32,37 @@ export function getTasks(): Tasks {
         const tasksData: {tasks: Tasks} = JSON.parse(rawData);
         return tasksData.tasks;
     };
-
 }
 
 
 export function deleteTask(id:number){
     const rawData = localStorage.getItem('TasksData')
-    //const rawData  = JSON.parse('TasksData');
 if(rawData == null){
     alert("データがありません")
-}else{
-    console.log(id)
-    const tasksData: {tasks: Tasks} = JSON.parse(rawData);
-    tasksData.tasks = tasksData.tasks.filter(task => !(task.id === id));
-    localStorage.setItem('TasksData', JSON.stringify(tasksData));
+    }else{
+        console.log(id)
+        const tasksData: {tasks: Tasks} = JSON.parse(rawData);
+        tasksData.tasks = tasksData.tasks.filter(task => !(task.id === id));
+        localStorage.setItem('TasksData', JSON.stringify(tasksData));
+    }
 }
 
+export function upeDateTask(id:number,position:number){
+    const rawData = localStorage.getItem('TasksData')
+    if(rawData == null){
+        alert("データがありません")
+    }else{
+        const upDateTasksData : {tasks: Tasks}  = JSON.parse(rawData);//アップデート用のタスク
+        const tasksData: {tasks: Tasks} = JSON.parse(rawData);//アップデートしないタスク
+                upDateTasksData.tasks = tasksData.tasks.filter(task => (task.id === id));
+                tasksData.tasks = tasksData.tasks.filter(task =>!(task.id === id));
+                upDateTasksData.tasks[0].position = position
+                tasksData.tasks.push(upDateTasksData.tasks[0]);
+                localStorage.setItem('TasksData', JSON.stringify(tasksData));
+    }
+                sorting()
 }
+
 
 export function sortTask(){
 if (window.confirm("並べ変えますか？")){
@@ -56,11 +71,16 @@ if (window.confirm("並べ変えますか？")){
         alert("データがありません")
     }else{
         const tasksData: {tasks: Tasks} = JSON.parse(rawData);
-        
         tasksData.tasks.sort((a,b) => a.title.localeCompare(b.title, 'ja'))
         localStorage.setItem('TasksData', JSON.stringify(tasksData));
     }
 }
-
 }//最後にloadtaskする
+
+
+export function sorting(){
+    sortTask()
+    loadTasks()
+}
+
 

@@ -1,12 +1,12 @@
 <template>
     <v-card class="taskType">
         <p class="text-center">{{ props.taskType}}</p>
-        <ahoShine/>
+        <taskCardMaine  :taskType="props.taskType" />
     </v-card>
 </template>
 <script setup lang="ts">
 const props = defineProps<{taskType:string}>();
-import ahoShine from './taskCardMaine.vue';
+import taskCardMaine from './taskCardMaine.vue';
 
 
 </script>

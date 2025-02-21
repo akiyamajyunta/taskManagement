@@ -24,11 +24,11 @@ function alldelet(){
 
 <style scoped>
 .menuBar{
-position: fixed;
-width: 250px;
-height: 100%;
-z-index: 1000;
-left:0%;
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    z-index: 1000;
+    left:0%;
 }
 
 
