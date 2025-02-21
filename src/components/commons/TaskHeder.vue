@@ -13,9 +13,9 @@
                     ></v-btn>
                 </template>
                 <v-list>
-                    <v-list-item key="1" value="1" title="50音" @click="sorting"/>
-                    <v-list-item key="1" value="2" title="日時" @click="sorting"/>
-                    <v-list-item key="1" value="3" title="menu3" @click="sorting"/>
+                    <v-list-item key="1" value="1" title="50音" @click="sortTask(1)"/>
+                    <v-list-item key="1" value="2" title="日時" @click="sortTask(2)"/>
+                    <v-list-item key="1" value="3" title="優先度" @click="sortTask(3)"/>
                 </v-list>
                 <v-list>
                 </v-list>
@@ -33,7 +33,7 @@
 
 <script setup lang="ts">
 import {  inputForum , menubar} from '@/scripts/input';
-import { sorting } from '@/scripts/record';
+import { sortTask } from '@/scripts/record';
 import menueBar from './sideBar.vue';
 import { sideBar } from '@/scripts/input';
 

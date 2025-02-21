@@ -1,6 +1,5 @@
-import {  tasks,loadTasks } from "./input";
+import { loadTasks } from "./input";
 import type { Task, Tasks } from "./types";
-import { task } from "./input";
 
 export function setTask(task: Task) {
         if(task.title.length <= 0){
@@ -60,27 +59,27 @@ export function upeDateTask(id:number,position:number){
                 tasksData.tasks.push(upDateTasksData.tasks[0]);
                 localStorage.setItem('TasksData', JSON.stringify(tasksData));
     }
-                sorting()
 }
 
 
-export function sortTask(){
+export function sortTask(sortingPattern:number ){
 if (window.confirm("並べ変えますか？")){
     const rawData = localStorage.getItem('TasksData')
     if(rawData == null){
         alert("データがありません")
     }else{
         const tasksData: {tasks: Tasks} = JSON.parse(rawData);
-        tasksData.tasks.sort((a,b) => a.title.localeCompare(b.title, 'ja'))
+        switch (sortingPattern) {
+        case 1:
+            tasksData.tasks.sort((a,b) => a.title.localeCompare(b.title, 'ja'))
+        case 2:
+            // tasksData.tasks.sort((a,b) => (b.date.getTime() - a.date.getTime()))
+        case 3:
+            tasksData.tasks.sort((a,b) => (b.star -  a.star))
+        }
         localStorage.setItem('TasksData', JSON.stringify(tasksData));
     }
 }
+loadTasks()
 }//最後にloadtaskする
-
-
-export function sorting(){
-    sortTask()
-    loadTasks()
-}
-
 

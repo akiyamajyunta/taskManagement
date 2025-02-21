@@ -56,7 +56,7 @@
                                             v-if="t.timeDisplay">
                                             <v-icon 
                                             left>mdi-clock-time-four-outline</v-icon>
-                                <a>{{getTime(t.time)}}</a><a>{{t.particle}}</a>
+                                <a>{{(t.time)}}</a><a>{{t.particle}}</a>
                             </v-card-title> 
                         </div>
                     <div class="box">
@@ -130,7 +130,6 @@ function moveCard(move:number,position:number,id:number){
     }else if  (position > 2) {
         position = 2;
     }else{}
-    console.log(position)
     upeDateTask(id,position)
     loadTasks()
 }

@@ -22,10 +22,6 @@ import { taskAction } from '@/scripts/input';
 
 onMounted(loadTasks);
 
-
-
-
-
 </script>
 
 <style scoped>

@@ -2,13 +2,12 @@
     <div class="d-flex flex-row mt-4" style="width: 100%;" >
         <div class="d-flex flex-row  relative" style="width: 50%;"  >
                 <v-date-input
-                v-if="task.dateDisplay"
-                label="日付"
-                prepend-icon=""
-                prepend-inner-icon="$calendar"
-                variant="outlined"
-                v-model="task.date"
-                :append-icon="''"
+                    v-if="task.dateDisplay"
+                    label="日付"
+                    prepend-inner-icon="$calendar"
+                    variant="outlined"
+                    v-model="task.date"
+                    :append-icon="''"
                 ></v-date-input>
         </div> 
         <div class="d-flex flex-row relative timeFelid" style="width: 50%;"   v-if="task.timeDisplay">
@@ -49,9 +48,10 @@
 />
 </template>
 <script setup lang="ts">
-import { task } from '@/scripts/input';
+import { getTime, task } from '@/scripts/input';
 import { VDateInput } from 'vuetify/labs/VDateInput';
 import { VTimePicker } from 'vuetify/labs/VTimePicker';
+
 const particle = ["から","まで"]
 
 </script>

@@ -38,18 +38,15 @@ export const lists= ref([
 
 export const photoCollection :{[key: string]: string}= {
     "銀行":bank,
-    "ごはん":eat,
+    "食事":eat,
     "ゲーム":game,
-    "ガーデン":garden,
+    "庭":garden,
     "病院":hospital,
     "仕事":job,
-    "探す":look,
+    "探し物":look,
     "ペット":sanpo,
     "学校":school,
     "買い物":shop,
     "交通":train,
     "その他":another,
 }
-// console.log(
-// photoCollection.bank)
-// export const photoCollection = [bank,eat,game,            ]

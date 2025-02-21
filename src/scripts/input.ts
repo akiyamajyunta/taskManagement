@@ -1,6 +1,7 @@
 import { ref } from "vue";
 import type { Task,Tasks } from "./types";
 
+
 export const items = ['銀行', 'ごはん', 'ゲーム', 'ガーデン', '病院', '仕事', '探す', 'ペット', '学校', '買い物', '交通', 'その他'];
 //export const icons = ['mdi-bank', 'mdi-dog-side', 'mdi-controller', 'mdi-home', 'mdi-hospital-box-outline', 'mdi-home', 'mdi-home', 'mdi-home', 'mdi-home', 'mdi-home', 'mdi-home', 'mdi-home']
 
@@ -9,7 +10,7 @@ export const dialog = ref<boolean>(false)
 export const inputForum = ref<boolean>(true)
 
 export const keepID = ref<number>(0) 
-export const task = ref<Task>({title: "", content: "" , star:3, date: new Date(), time: new Date, particle :"",
+export const task = ref<Task>({title: "", content: "" , star:3, date: new Date(), time: new Date(), particle :"",
                                 dateDisplay:false, timeDisplay:false,  action: "another" ,id : 0 ,position : 1});
 export const tasks = ref<Tasks>([])
 
@@ -63,7 +64,7 @@ export function sideBar(){
 }
 
 export function getData(data: Date){
-    const calenders  = new Date(data);
+    const calenders  = new Date();
     const year = calenders.getFullYear();
     const month = calenders.getMonth() + 1;
     const day = calenders.getDate();
@@ -71,12 +72,11 @@ export function getData(data: Date){
         return  year +"年"+month + "月" + day + "日"
 }
 
-export function getTime(data:Date){
-    const calenders  = new Date(data);
+export function getTime(date : Date){
+    const calenders  = date
     const Hours = calenders.getHours();
-    const minute = calenders.getMinutes();
-    return Hours + "時間"+ minute +"分"
-
+    const minute = calenders.getMinutes();    
+        return  Hours + "時" + minute +"分"
 }
 
 export const taskAction = ["実行前","実行中","終了"]
