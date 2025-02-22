@@ -19,13 +19,7 @@
                         <v-list-item key="1" value="2" title="日時" @click="sortTask(2)"/>
                         <v-list-item key="1" value="3" title="優先度" @click="sortTask(3)"/>
                     </v-list>
-                    <v-list>
-                    </v-list>
                 </v-menu>
-           
-        
-
-    
     </v-card>
     <Transition>
         <menue-bar v-if="menubar"/>

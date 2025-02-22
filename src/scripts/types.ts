@@ -3,15 +3,24 @@ export type Task = {title: string, content: string,star:number,
                     dateDisplay:boolean, timeDisplay:boolean,
                     action:string  ,id : number, position : number };
 export type ColorsType = {
-    summer: {
-        head: string;
-        button: string;
-        backGrand: string;
-        MainCard: string;
-        cardTypeBackGrand: string;
-        bottomColor: string;
-    };
+    head: string;
+    button: string;
+    backGrand: string;
+    MainCard: string;
+    cardTypeBackGrand: string;
+    bottomColor: string;
+}
+
+
+export type ColorsName = {
+    summer: ColorsType,
+    chocMint : ColorsType
+    kyoto : ColorsType,
+    Italy:ColorsType,
+    America : ColorsType,
+    mono:ColorsType,
 };
 
+//kyoto America Italy mono
 export type Tasks = Task[];
 
