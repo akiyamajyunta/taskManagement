@@ -1,3 +1,4 @@
+import { babelParse } from "vue/compiler-sfc";
 import { loadTasks } from "./input";
 import type { Task, Tasks,ColorsType ,ColorsName} from "./types";
 import { ref } from "vue";
@@ -73,10 +74,13 @@ if (window.confirm("並べ変えますか？")){
         switch (sortingPattern) {
         case 1:
             tasksData.tasks.sort((a,b) => a.title.localeCompare(b.title, 'ja'))
+            break
         case 2:
             // tasksData.tasks.sort((a,b) => (b.date.getTime() - a.date.getTime()))
+            break
         case 3:
             tasksData.tasks.sort((a,b) => (b.star -  a.star))
+            break
         }
         localStorage.setItem('TasksData', JSON.stringify(tasksData));
     }
@@ -85,7 +89,7 @@ loadTasks()
 }//最後にloadtaskする
 
 
-export const colorTheme  = ref<keyof  ColorsName>('summer')
+export const colorTheme  = ref<keyof  ColorsName>('America')
 export const colors : ColorsName = {
     summer: {head:'indigo-accent-2',button:'lime-accent-2',backGrand:'cyan-accent-1',MainCard:'white',
                             cardTypeBackGrand:'cyan-lighten-5' ,bottomColor:'yellow-accent-2' },//summer
@@ -103,17 +107,23 @@ export const colors : ColorsName = {
 export function colorsChange(color:number){
     switch (color){
         case 1:
-        colorTheme.value = 'summer'
+            colorTheme.value = 'summer'
+            break
         case 2:
-        colorTheme.value = 'chocMint'
+            colorTheme.value = 'chocMint'
+            break
         case 3 :
-        colorTheme.value = 'kyoto'
+            colorTheme.value = 'kyoto'
+            break
         case 4 :
-        colorTheme.value = 'America'
+            colorTheme.value = 'America'
+            break
         case 5 :
-        colorTheme.value = 'Italy'
+            colorTheme.value = 'Italy'
+            break
         case 6 :
-        colorTheme.value = 'mono'
+            colorTheme.value = 'mono'
+            break
     }
 }
 //夏　チョコミント　京都　アメリカ　イタリア　モノ
