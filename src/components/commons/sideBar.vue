@@ -1,15 +1,25 @@
 <template>
     <v-card class="menuBar">
         <v-btn
+        tile
+        icon="mdi-menu" 
+        size="large"
         @click="sideBar()"
-        >サイドバーです
-        </v-btn>
-        <v-btn icon="mdi-delete"  size="large"  @click="alldelet()"></v-btn>
+        color="red"
+        ></v-btn>
+
+        <v-card>
+            <p>カードサイズ</p>
+            <input type="range" min="200" max="400" value="50" class="slider" v-model="CardSize "/>
+            {{ CardSize }}
+        </v-card>
+           <v-btn icon="mdi-delete"  size="large"  @click="alldelet()"></v-btn>
     </v-card>
 </template>
 <script setup lang="ts">
 
 import { sideBar,loadTasks } from '@/scripts/input';
+import { CardSize } from '@/scripts/input';
 
 function alldelet(){
     if (window.confirm("全てのデータを消しますか？")) {

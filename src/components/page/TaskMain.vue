@@ -2,11 +2,12 @@
     <div class="setPosition">  
             <TaskHeder/>
             <inputCardMain/>
-            <div class="taskContainer" >
-                <TaskType :taskType="taskAction[0]"/>
-                <TaskType :taskType="taskAction[1]"/>
-                <TaskType :taskType="taskAction[2]"/>
-            </div>
+                <v-card class="taskContainer"  
+                        :color="colors[colorTheme].backGrand">
+                    <TaskType :taskType="taskAction[0]"/>
+                    <TaskType :taskType="taskAction[1]"/>
+                    <TaskType :taskType="taskAction[2]"/>
+                </v-card>
     </div>
 </template>
 
@@ -14,9 +15,9 @@
 import { loadTasks } from '@/scripts/input';
 import  TaskHeder from '../commons/TaskHeder.vue';
 import inputCardMain from '../commons/inputCardMain.vue';
-
+import { colors } from '@/scripts/record';
 import TaskType from '../commons/TaskType.vue';
-
+import { colorTheme } from '@/scripts/record';
 import { onMounted } from 'vue';
 import { taskAction } from '@/scripts/input';
 
@@ -39,7 +40,7 @@ onMounted(loadTasks);
     display: flex;
     flex-wrap: wrap;
     gap: 10px; /* アイテム間にスペースを追加 */
-    background-color: aqua;
+
 }
 
 

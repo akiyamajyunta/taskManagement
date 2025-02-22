@@ -1,6 +1,6 @@
 <template>
 <v-dialog v-model="inputForum" max-width="480">
-        <v-card class="inputZoon mt-n16">
+        <v-card class="inputZoon mt-n16" :color="colors[colorTheme].head">
             <v-card  class="inputAria mx-auto">
                     <inputFromUpper/>
                     <inputFromUnder/>
@@ -20,7 +20,8 @@ import { inputForum ,reset, task} from '@/scripts/input';
 import inputFromUpper from './inputFromUpper.vue';
 import inputFromUnder from './inputFromUnder.vue';
 import { submit } from '@/scripts/input';
-
+import { colors } from '@/scripts/record';
+import { colorTheme } from '@/scripts/record';
 function CalendarVisible(){
     task.value.dateDisplay = !task.value.dateDisplay
 }
@@ -38,7 +39,6 @@ function DateVisible(){
     position: fixed;
     top:-100px;
     z-index: 100;
-    background-color: rgb(74, 255, 14);
 }
 
 .inputAria{

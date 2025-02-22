@@ -1,13 +1,18 @@
 <template>
-    <v-card class="taskType">
+    <v-card class="taskType flex justify-center"
+            :color="colors[colorTheme].cardTypeBackGrand"  
+    >
         <p class="text-center">{{ props.taskType}}</p>
-        <taskCardMaine  :taskType="props.taskType" />
+            <taskCardMaine  :taskType="props.taskType" />
+
     </v-card>
 </template>
 <script setup lang="ts">
-const props = defineProps<{taskType:string}>();
+import { colors } from '@/scripts/record';
+import { colorTheme } from '@/scripts/record';
 import taskCardMaine from './taskCardMaine.vue';
 
+const props = defineProps<{taskType:string}>();
 
 </script>
 <style scoped>
@@ -20,9 +25,9 @@ margin:1%;
 background-color: rgb(255, 255, 255);
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1020px) {
     .taskType{
-        width: 45%;
+        width: 48%;
         margin: auto;
      
         
@@ -30,7 +35,7 @@ background-color: rgb(255, 255, 255);
 }
 @media (max-width: 580px) {
     .taskType{
-        width: 60%;
+        width: 90%;
         margin: auto;
 
         }

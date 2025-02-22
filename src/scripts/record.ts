@@ -1,5 +1,6 @@
 import { loadTasks } from "./input";
 import type { Task, Tasks } from "./types";
+import { ref } from "vue";
 
 export function setTask(task: Task) {
         if(task.title.length <= 0){
@@ -83,3 +84,21 @@ if (window.confirm("並べ変えますか？")){
 loadTasks()
 }//最後にloadtaskする
 
+export const colorTheme = ref<number>(5)
+export const colors = [
+{head:'indigo-accent-2',button:'lime-accent-2',backGrand:'cyan-accent-1',MainCard:'white',
+                        cardTypeBackGrand:'cyan-lighten-5' ,bottomColor:'yellow-accent-2' },//summer
+{head:'brown-darken-1',button:'cyan-accent-1', backGrand:'cyan-accent-1',MainCard:'white',
+                        cardTypeBackGrand:'yellow-lighten-4' ,bottomColor:'brown-darken-1' },//chocoMint
+{head:'green-darken-2',button:'lime-accent-2', backGrand:'red-lighten-1',MainCard:'white',
+                        cardTypeBackGrand:'red-lighten-4' ,bottomColor:'lime-accent-2' },//kyoto
+{head:'indigo-darken-3',button:'white', backGrand:'white',MainCard:'white',
+                        cardTypeBackGrand:'red-accent-4' ,bottomColor:'lime-accent-2' },//America
+{head:'green',button:'white', backGrand:'white',MainCard:'white',
+                        cardTypeBackGrand:'deep-orange-accent-3' ,bottomColor:'cyan-darken-1' },//Italy
+{head:'black',button:'white', backGrand:'grey-lighten-2',MainCard:'white',
+                        cardTypeBackGrand:'white' ,bottomColor:'white' },//mono
+
+]
+
+//light-green-accent-1
