@@ -12,14 +12,14 @@
 </template>
 
 <script setup lang="ts">
-import { loadTasks } from '@/scripts/input';
+import { loadTasks,taskAction} from '@/scripts/input';
 import  TaskHeder from '../commons/TaskHeder.vue';
 import inputCardMain from '../commons/inputCardMain.vue';
 import { colors } from '@/scripts/record';
 import TaskType from '../commons/TaskType.vue';
 import { colorTheme } from '@/scripts/record';
 import { onMounted } from 'vue';
-import { taskAction } from '@/scripts/input';
+
 
 onMounted(loadTasks);
 

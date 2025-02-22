@@ -13,7 +13,6 @@
                         :size=" CardSize *0.2 +'px'"
                         >
                         <v-img
-                            alt="John"
                             class="border-thin bg-white"
                             :src="photoCollection[t.action]"
                         ></v-img>

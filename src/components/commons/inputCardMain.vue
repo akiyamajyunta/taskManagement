@@ -5,7 +5,7 @@
                     <inputFromUpper/>
                     <inputFromUnder/>
             </v-card>
-            <v-card class="buttonZone">
+            <v-card class="buttonZone" :color="colors[colorTheme].backGrand">
                 <v-btn  icon="mdi-send" size="x-small" @click="submit"></v-btn>
                 <v-btn  icon="mdi-calendar-month" size="x-small" @click="CalendarVisible()"></v-btn>
                 <v-btn  icon="mdi-clock-time-five-outline" size="x-small" @click="DateVisible"></v-btn>
@@ -54,7 +54,6 @@ function DateVisible(){
     width:  100%;
     height: 30px;
     z-index: 100;
-    background-color: rgb(255, 227, 14);
 }
 
 .trueStar{

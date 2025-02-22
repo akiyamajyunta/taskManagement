@@ -1,9 +1,9 @@
 <template>
-    <v-card class="startField mx-auto"  :color="colors[colorTheme].head">
-            <v-btn icon="mdi-menu" size="large"  
+    <v-card class="startField mx-auto" tile flat :color="colors[colorTheme].head">
+            <v-btn icon="mdi-menu" size="large" 
                     tile  :color="colors[colorTheme].head" @click="sideBar" ></v-btn>
-                <v-btn icon="mdi-pen" size="large"  
-                        class="mr-100" :color="colors[colorTheme ].button" 
+                <v-btn icon="mdi-pen" size="large" tile  
+                        class="mr-100" :color="colors[colorTheme].head" 
                         @click="curtain()"></v-btn>
                 <v-menu>
                     <template v-slot:activator="{ props }">
@@ -11,7 +11,7 @@
                             v-bind="props"
                             icon="mdi-sort"
                             size="large"
-                            :color="colors[colorTheme].button" 
+                            :color="colors[colorTheme].head" 
                         ></v-btn>
                     </template>
                     <v-list>
@@ -22,7 +22,8 @@
                 </v-menu>
     </v-card>
     <Transition>
-        <menue-bar v-if="menubar"/>
+            <menue-bar v-if="menubar"/>
+            <!-- <menue-bar v-if="true"/> -->
     </Transition>
 
 </template>
@@ -33,7 +34,6 @@ import { sortTask } from '@/scripts/record';
 import menueBar from './sideBar.vue';
 import { sideBar } from '@/scripts/input';
 import { colors } from '@/scripts/record';
-import { red } from 'vuetify/util/colors';
 import { colorTheme } from '@/scripts/record';
 
 

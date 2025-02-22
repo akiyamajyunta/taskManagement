@@ -9,11 +9,12 @@ export type ColorsType = {
     MainCard: string;
     cardTypeBackGrand: string;
     bottomColor: string;
+    sideColor:string
 }
 
 
 export type ColorsName = {
-    summer: ColorsType,
+    Antarctic: ColorsType,
     chocMint : ColorsType
     kyoto : ColorsType,
     Italy:ColorsType,

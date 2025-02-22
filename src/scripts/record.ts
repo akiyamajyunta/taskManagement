@@ -91,23 +91,23 @@ loadTasks()
 
 export const colorTheme  = ref<keyof  ColorsName>('America')
 export const colors : ColorsName = {
-    summer: {head:'indigo-accent-2',button:'lime-accent-2',backGrand:'cyan-accent-1',MainCard:'white',
-                            cardTypeBackGrand:'cyan-lighten-5' ,bottomColor:'yellow-accent-2' },//summer
+    Antarctic: {head:'black',button:'lime-accent-2',backGrand:'white',MainCard:'white',
+                            cardTypeBackGrand:'cyan-accent-1' ,bottomColor:'yellow-accent-2' ,sideColor:'lime-accent-1'},//summer
     chocMint:{head:'brown-darken-1',button:'cyan-accent-1', backGrand:'cyan-accent-1',MainCard:'white',
-                                cardTypeBackGrand:'yellow-lighten-4' ,bottomColor:'brown-darken-1' },//chocoMint
-    kyoto:    {head:'green-darken-2',button:'lime-accent-2', backGrand:'red-lighten-1',MainCard:'white',
-                                cardTypeBackGrand:'red-lighten-4' ,bottomColor:'lime-accent-2' },//kyoto
+                                cardTypeBackGrand:'yellow-lighten-4' ,bottomColor:'brown-darken-1',sideColor:'black' },//chocoMint
+    kyoto:    {head:'green-darken-2',button:'lime-accent-2', backGrand:'red-lighten-1',MainCard:'lime-lighten-4',
+                                cardTypeBackGrand:'red-lighten-4' ,bottomColor:'lime-accent-2',sideColor:'black' },//kyoto
     America:    {head:'indigo-darken-3',button:'white', backGrand:'white',MainCard:'white',
-                                cardTypeBackGrand:'red-accent-4' ,bottomColor:'lime-accent-2' },//America
+                                cardTypeBackGrand:'red-accent-4' ,bottomColor:'lime-accent-2',sideColor:'white' },//America
     Italy:    {head:'green',button:'white', backGrand:'white',MainCard:'white',
-                                cardTypeBackGrand:'deep-orange-accent-3' ,bottomColor:'cyan-darken-1' },//Italy
-    mono:   {head:'black',button:'white', backGrand:'grey-lighten-2',MainCard:'white',
+                                cardTypeBackGrand:'deep-orange-accent-3' ,bottomColor:'cyan-darken-1',sideColor:'black' },//Italy
+    mono:   {head:'black',button:'white', backGrand:'grey-lighten-2',MainCard:'white',sideColor:'black',
                                 cardTypeBackGrand:'white' ,bottomColor:'white' },//mono
     }
 export function colorsChange(color:number){
     switch (color){
         case 1:
-            colorTheme.value = 'summer'
+            colorTheme.value = 'Antarctic'
             break
         case 2:
             colorTheme.value = 'chocMint'

@@ -4,7 +4,6 @@
     >
         <p class="text-center">{{ props.taskType}}</p>
             <taskCardMaine  :taskType="props.taskType" />
-
     </v-card>
 </template>
 <script setup lang="ts">

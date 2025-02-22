@@ -10,6 +10,7 @@ export const inputForum = ref<boolean>(true)
 export const keepID = ref<number>(0) 
 export const tasks = ref<Tasks>([])
 export const menubar = ref<boolean>(false)
+export const CardSizeVolume = ref<boolean>(false)
 export const CardSize = ref<number>(200)
 
 
