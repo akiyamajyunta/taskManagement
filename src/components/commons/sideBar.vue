@@ -5,7 +5,7 @@
         icon="mdi-menu" 
         size="large"
         @click="sideBar()"
-        color="red"
+        :color="colorsTest[testSend]['head']"
         ></v-btn>
 
         <v-card>
@@ -20,6 +20,9 @@
 
 import { sideBar,loadTasks } from '@/scripts/input';
 import { CardSize } from '@/scripts/input';
+import { colorsTest ,testSend} from '@/scripts/record';
+import type { ColorsType } from '@/scripts/types';
+
 
 function alldelet(){
     if (window.confirm("全てのデータを消しますか？")) {
@@ -28,7 +31,7 @@ function alldelet(){
 }
 }
 
-
+//console.log(colorsTest[testSend.value]['head'])
 </script>
 
 

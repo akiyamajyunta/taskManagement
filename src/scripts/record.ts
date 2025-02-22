@@ -1,5 +1,5 @@
 import { loadTasks } from "./input";
-import type { Task, Tasks } from "./types";
+import type { Task, Tasks,ColorsType } from "./types";
 import { ref } from "vue";
 
 export function setTask(task: Task) {
@@ -101,4 +101,13 @@ export const colors = [
 
 ]
 
+export const testSend = ref<keyof  ColorsType>('summer')
+export const colorsTest : ColorsType = {
+   summer: {head:'indigo-accent-2',button:'lime-accent-2',backGrand:'cyan-accent-1',MainCard:'white',
+                            cardTypeBackGrand:'cyan-lighten-5' ,bottomColor:'yellow-accent-2' },//summer
+    }
+
+   console.log(colorsTest[testSend.value]['head'])
+
+      //colorsTest['summer']['head'] 
 //light-green-accent-1
