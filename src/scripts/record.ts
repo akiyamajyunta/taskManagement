@@ -150,13 +150,13 @@ export function  changeColor(SendThemeColor:number){
 
 
 
-export function getOption(): Option {
+export function getOption():number {
     const rawData = localStorage.getItem('option')
     if (rawData == null) {
-            return { themeColor:0,size:0 }
+            return 0
     } else {
-        const optionData: {option: Option} = JSON.parse(rawData);
-                return  optionData.option
+        const optionData = JSON.parse(rawData);
+                return  optionData.themeColor
         
     };
 }
@@ -199,11 +199,8 @@ export function colorsChange(color:number){
             colorTheme.value = 'mono'
             break
     }
-    alert("aaa")
         changeColor(color)      
-       option.value = getOption()
-    //console.log(JSON.stringify(option.value))
-}
-//夏　チョコミント　京都　アメリカ　イタリア　モノ
+        //option.value.themeColor = getOption()
 
-////changeColor getOption
+}
+

@@ -36,9 +36,10 @@ export function loadTasks(){
     tasks.value = getTasks();
     inputForum.value = false;
 }//taskの追加の時に実行。loadTasksdで表示される
+
 export function kidou(){
-    //option.value = getOption()
-   // colorsChange(2)
+    option.value.themeColor = getOption()
+   colorsChange(option.value.themeColor)
 }
 
 
