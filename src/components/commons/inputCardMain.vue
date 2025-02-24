@@ -6,10 +6,10 @@
                     <inputFromUnder/>
             </v-card>
             <v-card class="buttonZone" :color="colors[colorTheme].backGrand">
-                <v-btn  icon="mdi-send" size="x-small" @click="submit"></v-btn>
-                <v-btn  icon="mdi-calendar-month" size="x-small" @click="CalendarVisible()"></v-btn>
+                <v-btn  icon="mdi-send" size="x-small" @click="addTask"></v-btn>
+                <v-btn  icon="mdi-calendar-month" size="x-small" @click="CalendarVisible"></v-btn>
                 <v-btn  icon="mdi-clock-time-five-outline" size="x-small" @click="DateVisible"></v-btn>
-                <v-btn  icon="mdi-backspace-outline" size="x-small"  @click="reset()"></v-btn>
+                <v-btn  icon="mdi-backspace-outline" size="x-small"  @click="reset"></v-btn>
             </v-card>
         </v-card>
 </v-dialog>
@@ -19,7 +19,7 @@
 import { inputForum ,reset, task} from '@/scripts/input';
 import inputFromUpper from './inputFromUpper.vue';
 import inputFromUnder from './inputFromUnder.vue';
-import { submit } from '@/scripts/input';
+import {  addTask } from '@/scripts/input';
 import { colors } from '@/scripts/record';
 import { colorTheme } from '@/scripts/record';
 function CalendarVisible(){

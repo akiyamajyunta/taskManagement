@@ -5,7 +5,7 @@
         flat
         icon="mdi-menu" 
         size="large"
-        @click="sideBar()"
+        @click="sideBar"
         ></v-btn>
         <ul class="nav-list mt-10">
             <v-menu>
@@ -48,7 +48,7 @@
                     class="sendOption"
                     flat
                     tile
-                    @click="alldelet()">全てのデータを消す</v-btn>
+                    @click="allDelet()">全てのデータを消す</v-btn>
         </ul>            
     </v-card>
 </template>
@@ -64,7 +64,7 @@ function OpenColorVolume(){
     CardSizeVolume.value =! CardSizeVolume.value
 }
 
-function alldelet(){
+function allDelet(){
     if (window.confirm("全てのデータを消しますか？")) {
         localStorage.removeItem('TasksData');
         loadTasks()

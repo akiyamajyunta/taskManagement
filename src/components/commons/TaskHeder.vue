@@ -1,7 +1,7 @@
 <template>
     <v-card class="startField mx-auto" tile flat :color="colors[colorTheme].head">
             <v-btn icon="mdi-menu" size="large" 
-                    tile  :color="colors[colorTheme].head" @click="sideBar" ></v-btn>
+                    tile:color="colors[colorTheme].head" @click="sideBar" ></v-btn>
                 <v-btn icon="mdi-pen" size="large" tile  
                         class="mr-100" :color="colors[colorTheme].head" 
                         @click="curtain()"></v-btn>
@@ -23,7 +23,6 @@
     </v-card>
     <Transition>
             <menue-bar v-if="menubar"/>
-            <!-- <menue-bar v-if="true"/> -->
     </Transition>
 
 </template>

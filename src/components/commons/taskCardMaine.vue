@@ -62,7 +62,7 @@
                     </div>
                 <div class="box">
                 </div>
-                <div  v-if="showContent" class="mt-n4">
+                <div  v-if="t.contentDisplay" class="mt-n4">
                     <v-card-text
                     :style="{fontSize: CardSize * 0.25 +'%'}" 
                     >{{ t.content }}
@@ -71,8 +71,8 @@
             <v-card :style="{height: CardSize * 0.14 +'px'}" :color="colors[colorTheme].bottomColor">
                     <v-icon
                         :style="{fontSize: CardSize * 0.4 +'%'}" 
-                        @click="openContent"
-                        >{{ showContent ? 'mdi-chevron-down' : 'mdi-chevron-up' }}
+                        @click="openContents(t.id)"
+                        >{{ t.contentDisplay ? 'mdi-chevron-down' : 'mdi-chevron-up' }}
                     </v-icon>
                         <v-icon
                         :style="{fontSize: CardSize * 0.4 +'%'}" 
@@ -100,24 +100,27 @@
 
 
 <script setup lang="ts">
-import { ref } from 'vue';
 
 import { loadTasks, tasks,getData,getTime } from '@/scripts/input';
-import { deleteTask, upeDateTask    } from '@/scripts/record';
+import { deleteTask,  MovingTask } from '@/scripts/record';
 import { photoCollection } from '@/scripts/imgs';
 import { taskAction } from '@/scripts/input';
 import { CardSize } from '@/scripts/input';
 import { colors } from '@/scripts/record';
 import { colorTheme } from '@/scripts/record';
-
+import { openContent } from '@/scripts/record';
+import { task } from '@/scripts/input';
+import { movingAfterSortTask } from '@/scripts/record';
 
 const props = defineProps<{taskType:string}>();
 
-const showContent = ref<boolean>(false)
 
 
-function openContent(){
-    showContent.value  = !showContent.value 
+function openContents(id:number){
+    task.value.contentDisplay =!task.value.contentDisplay
+    console.log("open"+ task.value.contentDisplay )
+    openContent(id)
+    loadTasks()
 }
 
 function deletes(id:number){
@@ -132,10 +135,11 @@ function moveCard(move:number,position:number,id:number){
     }else if  (position > 2) {
         position = 2;
     }else{}
-    upeDateTask(id,position)
+    MovingTask(id,position)//移動
+    movingAfterSortTask()
     loadTasks()
 }
-//const taskAction = ["実行前","実行中","終了"]
+
 function movingCardJuge(zoonName:string,positionNumber:number):boolean{
 if(zoonName == taskAction[positionNumber]){
     return true
@@ -143,12 +147,6 @@ if(zoonName == taskAction[positionNumber]){
     return false
 }
 }
-
-
-
-
-
-
 
 </script>
 

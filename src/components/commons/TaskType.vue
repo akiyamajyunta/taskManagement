@@ -28,7 +28,6 @@ background-color: rgb(255, 255, 255);
     .taskType{
         width: 48%;
         margin: auto;
-     
         
         }
 }

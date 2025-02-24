@@ -3,7 +3,7 @@ import type { Task,Tasks } from "./types";
 import { setTask, getTasks } from '@/scripts/record';
 
 export const task = ref<Task>({title: "", content: "" , star:3, date: new Date(), time: new Date(), particle :"",
-                                dateDisplay:false, timeDisplay:false,  action: "another" ,id : 0 ,position : 1});
+                                dateDisplay:false, timeDisplay:false, contentDisplay:false, action: "another" ,id : 0 ,position : 1});
 
 export const dialog = ref<boolean>(false)
 export const inputForum = ref<boolean>(true)
@@ -13,9 +13,10 @@ export const menubar = ref<boolean>(false)
 export const CardSizeVolume = ref<boolean>(false)
 export const CardSize = ref<number>(200)
 
+export const sortPatternStore = ref<number>(0)//タスクの移動後に並び替えをする。そのパターンの保存
 
 
-export function submit() {
+export function addTask() {
     task.value.id = keepID.value
     setTask(task.value);
     loadTasks()
@@ -52,13 +53,13 @@ export function sideBar(){
     menubar.value =!  menubar.value
 }
 
-export function getData(data: Date){
-    const calenders  = new Date();
+export function getData(date: Date):string{
+    const calenders  = new Date(date)
     const year = calenders.getFullYear();
     const month = calenders.getMonth() + 1;
     const day = calenders.getDate();
     console.log( year +"年"+month + "月" + day + "日")
-        return  year +"年"+month + "月" + day + "日"
+        return  String(year +"年"+month + "月" + day + "日")
 }
 
 export function getTime(date : Date){

@@ -1,6 +1,7 @@
 export type Task = {title: string, content: string,star:number,
                     date:Date, time:Date, particle : string,
                     dateDisplay:boolean, timeDisplay:boolean,
+                    contentDisplay:boolean,
                     action:string  ,id : number, position : number };
 export type ColorsType = {
     head: string;

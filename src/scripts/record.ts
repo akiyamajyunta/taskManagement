@@ -2,6 +2,7 @@ import { babelParse } from "vue/compiler-sfc";
 import { loadTasks } from "./input";
 import type { Task, Tasks,ColorsType ,ColorsName} from "./types";
 import { ref } from "vue";
+import { sortPatternStore } from "./input";
 
 export function setTask(task: Task) {
         if(task.title.length <= 0){
@@ -48,13 +49,15 @@ if(rawData == null){
     }
 }
 
-export function upeDateTask(id:number,position:number){
+
+//
+export function  MovingTask(id:number,position:number){
     const rawData = localStorage.getItem('TasksData')
     if(rawData == null){
         alert("データがありません")
     }else{
-        const upDateTasksData : {tasks: Tasks}  = JSON.parse(rawData);//アップデート用のタスク
-        const tasksData: {tasks: Tasks} = JSON.parse(rawData);//アップデートしないタスク
+        const upDateTasksData : {tasks: Tasks}  = JSON.parse(rawData);//移動する用のタスク
+        const tasksData: {tasks: Tasks} = JSON.parse(rawData);//移動しないタスク
                 upDateTasksData.tasks = tasksData.tasks.filter(task => (task.id === id));
                 tasksData.tasks = tasksData.tasks.filter(task =>!(task.id === id));
                 upDateTasksData.tasks[0].position = position
@@ -62,13 +65,27 @@ export function upeDateTask(id:number,position:number){
                 localStorage.setItem('TasksData', JSON.stringify(tasksData));
     }
 }
-
-
-export function sortTask(sortingPattern:number ){
-if (window.confirm("並べ変えますか？")){
+export function openContent(id:number){
     const rawData = localStorage.getItem('TasksData')
     if(rawData == null){
         alert("データがありません")
+    }else{
+        const upDateTasksData : {tasks: Tasks}  = JSON.parse(rawData);//オープンするタスク
+        const tasksData: {tasks: Tasks} = JSON.parse(rawData);//オープンしないタスク
+                upDateTasksData.tasks = tasksData.tasks.filter(task => (task.id === id));
+                tasksData.tasks = tasksData.tasks.filter(task =>!(task.id === id));
+                upDateTasksData.tasks[0].contentDisplay = !upDateTasksData.tasks[0].contentDisplay
+                console.log( upDateTasksData.tasks[0].contentDisplay)
+                tasksData.tasks.push(upDateTasksData.tasks[0]);
+                localStorage.setItem('TasksData', JSON.stringify(tasksData));
+    }
+}
+
+export function sortTask(sortingPattern:number ){
+    const rawData = localStorage.getItem('TasksData')
+if (window.confirm("並べ変えますか？")){  
+
+    if(rawData == null){
     }else{
         const tasksData: {tasks: Tasks} = JSON.parse(rawData);
         switch (sortingPattern) {
@@ -76,7 +93,30 @@ if (window.confirm("並べ変えますか？")){
             tasksData.tasks.sort((a,b) => a.title.localeCompare(b.title, 'ja'))
             break
         case 2:
-            // tasksData.tasks.sort((a,b) => (b.date.getTime() - a.date.getTime()))
+            tasksData.tasks.sort((a,b) => (b.date.getTime() - a.date.getTime()))//No
+            break
+        case 3:
+            tasksData.tasks.sort((a,b) => (b.star -  a.star))
+            break
+        }
+        sortPatternStore.value = sortingPattern
+        localStorage.setItem('TasksData', JSON.stringify(tasksData));
+    }
+}
+loadTasks()
+}//最後にloadtaskする
+
+export function movingAfterSortTask(){
+    const rawData = localStorage.getItem('TasksData')
+    if(rawData == null){
+    }else{
+        const tasksData: {tasks: Tasks} = JSON.parse(rawData);
+        switch (sortPatternStore.value) {
+        case 1:
+            tasksData.tasks.sort((a,b) => a.title.localeCompare(b.title, 'ja'))
+            break
+        case 2:
+            tasksData.tasks.sort((a,b) => (b.date.getTime() - a.date.getTime()))//No
             break
         case 3:
             tasksData.tasks.sort((a,b) => (b.star -  a.star))
@@ -84,9 +124,30 @@ if (window.confirm("並べ変えますか？")){
         }
         localStorage.setItem('TasksData', JSON.stringify(tasksData));
     }
+    loadTasks()
 }
-loadTasks()
-}//最後にloadtaskする
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 export const colorTheme  = ref<keyof  ColorsName>('America')
@@ -95,13 +156,13 @@ export const colors : ColorsName = {
                             cardTypeBackGrand:'cyan-accent-1' ,bottomColor:'yellow-accent-2' ,sideColor:'lime-accent-1'},//summer
     chocMint:{head:'brown-darken-1',button:'cyan-accent-1', backGrand:'cyan-accent-1',MainCard:'white',
                                 cardTypeBackGrand:'yellow-lighten-4' ,bottomColor:'brown-darken-1',sideColor:'black' },//chocoMint
-    kyoto:    {head:'green-darken-2',button:'lime-accent-2', backGrand:'red-lighten-1',MainCard:'lime-lighten-4',
+    kyoto:{head:'green-darken-2',button:'lime-accent-2', backGrand:'red-lighten-1',MainCard:'lime-lighten-4',
                                 cardTypeBackGrand:'red-lighten-4' ,bottomColor:'lime-accent-2',sideColor:'black' },//kyoto
-    America:    {head:'indigo-darken-3',button:'white', backGrand:'white',MainCard:'white',
+    America:{head:'indigo-darken-3',button:'white', backGrand:'white',MainCard:'white',
                                 cardTypeBackGrand:'red-accent-4' ,bottomColor:'lime-accent-2',sideColor:'white' },//America
-    Italy:    {head:'green',button:'white', backGrand:'white',MainCard:'white',
+    Italy:{head:'green',button:'white', backGrand:'white',MainCard:'white',
                                 cardTypeBackGrand:'deep-orange-accent-3' ,bottomColor:'cyan-darken-1',sideColor:'black' },//Italy
-    mono:   {head:'black',button:'white', backGrand:'grey-lighten-2',MainCard:'white',sideColor:'black',
+    mono:{head:'black',button:'white', backGrand:'grey-lighten-2',MainCard:'white',sideColor:'black',
                                 cardTypeBackGrand:'white' ,bottomColor:'white' },//mono
     }
 export function colorsChange(color:number){
