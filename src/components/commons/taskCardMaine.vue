@@ -101,16 +101,9 @@
 
 <script setup lang="ts">
 
-import { loadTasks, tasks,getData,getTime } from '@/scripts/input';
-import { deleteTask,  MovingTask } from '@/scripts/record';
+import { loadTasks, tasks,getData, taskAction, CardSize, task } from '@/scripts/input';
+import { deleteTask,  MovingTask,colors,colorTheme,openContent,movingAfterSortTask } from '@/scripts/record';
 import { photoCollection } from '@/scripts/imgs';
-import { taskAction } from '@/scripts/input';
-import { CardSize } from '@/scripts/input';
-import { colors } from '@/scripts/record';
-import { colorTheme } from '@/scripts/record';
-import { openContent } from '@/scripts/record';
-import { task } from '@/scripts/input';
-import { movingAfterSortTask } from '@/scripts/record';
 
 const props = defineProps<{taskType:string}>();
 

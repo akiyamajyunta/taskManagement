@@ -1,9 +1,12 @@
 import { ref } from "vue";
-import type { Task,Tasks } from "./types";
-import { setTask, getTasks } from '@/scripts/record';
+import type { Task,Tasks,Option} from "./types";
+import { setTask, getTasks ,getOption, colorsChange} from '@/scripts/record';
+import { changeColor } from "@/scripts/record";
 
 export const task = ref<Task>({title: "", content: "" , star:3, date: new Date(), time: new Date(), particle :"",
                                 dateDisplay:false, timeDisplay:false, contentDisplay:false, action: "another" ,id : 0 ,position : 1});
+
+export const option = ref<Option>({themeColor:1,size:300})                               
 
 export const dialog = ref<boolean>(false)
 export const inputForum = ref<boolean>(true)
@@ -24,7 +27,7 @@ export function addTask() {
     reset()
 }//taskの追加
 
-export function loadTasks() {
+export function loadTasks(){
     tasks.value = getTasks();
     for( const t of tasks.value){
             keepID.value = t.id
@@ -32,7 +35,10 @@ export function loadTasks() {
     tasks.value = getTasks();
     inputForum.value = false;
 }//taskの追加の時に実行。loadTasksdで表示される
-
+export function kidou(){
+    //option.value = getOption()
+    colorsChange(2)
+}
 
 
 

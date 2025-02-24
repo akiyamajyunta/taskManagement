@@ -28,11 +28,9 @@
 </template>
 
 <script setup lang="ts">
-import {  inputForum , menubar} from '@/scripts/input';
-import { sortTask } from '@/scripts/record';
+import {  inputForum , menubar,sideBar} from '@/scripts/input';
+import { sortTask,colors } from '@/scripts/record';
 import menueBar from './sideBar.vue';
-import { sideBar } from '@/scripts/input';
-import { colors } from '@/scripts/record';
 import { colorTheme } from '@/scripts/record';
 
 

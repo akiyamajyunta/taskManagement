@@ -16,12 +16,11 @@
 
 </template>
 <script setup lang="ts">
-import { inputForum ,reset, task} from '@/scripts/input';
+import { inputForum ,reset, task,addTask} from '@/scripts/input';
 import inputFromUpper from './inputFromUpper.vue';
 import inputFromUnder from './inputFromUnder.vue';
-import {  addTask } from '@/scripts/input';
-import { colors } from '@/scripts/record';
-import { colorTheme } from '@/scripts/record';
+import { colors ,colorTheme} from '@/scripts/record';
+
 function CalendarVisible(){
     task.value.dateDisplay = !task.value.dateDisplay
 }

@@ -48,7 +48,7 @@
 />
 </template>
 <script setup lang="ts">
-import { getTime, task } from '@/scripts/input';
+import { task } from '@/scripts/input';
 import { VDateInput } from 'vuetify/labs/VDateInput';
 import { VTimePicker } from 'vuetify/labs/VTimePicker';
 

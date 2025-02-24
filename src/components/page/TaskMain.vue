@@ -15,13 +15,14 @@
 import { loadTasks,taskAction} from '@/scripts/input';
 import  TaskHeder from '../commons/TaskHeder.vue';
 import inputCardMain from '../commons/inputCardMain.vue';
-import { colors } from '@/scripts/record';
+import { colors,colorTheme} from '@/scripts/record';
 import TaskType from '../commons/TaskType.vue';
-import { colorTheme } from '@/scripts/record';
 import { onMounted } from 'vue';
-
+import { kidou } from '@/scripts/input';
 
 onMounted(loadTasks);
+onMounted(kidou)
+// option.value = getOption()
 
 </script>
 

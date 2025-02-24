@@ -1,8 +1,12 @@
-import { babelParse } from "vue/compiler-sfc";
-import { loadTasks } from "./input";
-import type { Task, Tasks,ColorsType ,ColorsName} from "./types";
 import { ref } from "vue";
-import { sortPatternStore } from "./input";
+import { loadTasks, sortPatternStore ,option } from "./input";
+import type { Task, Tasks, ColorsName, Option} from "./types";
+
+
+//changeColor getOption
+
+
+
 
 export function setTask(task: Task) {
         if(task.title.length <= 0){
@@ -129,24 +133,29 @@ export function movingAfterSortTask(){
 
 
 
+//localStorage.setItem('option', JSON.stringify(option));
+export function  changeColor(SendThemeColor:number){
+    const rawData = localStorage.getItem('option')
+    if(rawData == null){
+    }else{
+        localStorage.setItem('option', JSON.stringify(option));
+        const upDateOptionData  = JSON.parse(rawData);
+                upDateOptionData.themeColor = SendThemeColor
+                localStorage.setItem('option', JSON.stringify(upDateOptionData));
+                
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export function getOption(): Option {
+    const rawData = localStorage.getItem('option')
+    if (rawData == null) {
+            return { themeColor:0,size:0 }
+    } else {
+        const optionData: {option: Option} = JSON.parse(rawData);
+                return  optionData.option
+        
+    };
+}
 
 
 
@@ -166,7 +175,7 @@ export const colors : ColorsName = {
                                 cardTypeBackGrand:'white' ,bottomColor:'white' },//mono
     }
 export function colorsChange(color:number){
-    switch (color){
+    switch (color){ 
         case 1:
             colorTheme.value = 'Antarctic'
             break
@@ -186,5 +195,10 @@ export function colorsChange(color:number){
             colorTheme.value = 'mono'
             break
     }
+    changeColor(color)      
+       option.value = getOption()
+    //console.log(JSON.stringify(option.value))
 }
 //夏　チョコミント　京都　アメリカ　イタリア　モノ
+
+////changeColor getOption

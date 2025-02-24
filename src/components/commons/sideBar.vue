@@ -35,9 +35,7 @@
                 @click="OpenColorVolume"
             >  <v-icon>{{ CardSizeVolume ? 'mdi-chevron-down' : 'mdi-chevron-up' }}</v-icon>
             カードの大きさを選択
-          </v-btn>
-           
-
+        </v-btn>
                 <v-card  class="cardSizeVolume"  flat tile  v-if="CardSizeVolume">
                     <div class="mt-5">
                         <input type="range" min="200" max="400" value="50" v-model="CardSize "/>
@@ -54,10 +52,9 @@
 </template>
 <script setup lang="ts">
 //夏　チョコミント　京都　アメリカ　イタリア　モノ
-import { sideBar,loadTasks } from '@/scripts/input';
-import { CardSize } from '@/scripts/input';
+import { sideBar,loadTasks,CardSize,CardSizeVolume } from '@/scripts/input';
 import { colorsChange } from '@/scripts/record';
-import { CardSizeVolume } from '@/scripts/input';
+
 
 function OpenColorVolume(){
 
