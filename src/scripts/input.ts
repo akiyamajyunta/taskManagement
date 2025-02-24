@@ -7,6 +7,7 @@ export const task = ref<Task>({title: "", content: "" , star:3, date: new Date()
                                 dateDisplay:false, timeDisplay:false, contentDisplay:false, action: "another" ,id : 0 ,position : 1});
 
 export const option = ref<Option>({themeColor:1,size:300})                               
+export const taskAction = ["実行前","実行中","終了"]
 
 export const dialog = ref<boolean>(false)
 export const inputForum = ref<boolean>(true)
@@ -37,7 +38,7 @@ export function loadTasks(){
 }//taskの追加の時に実行。loadTasksdで表示される
 export function kidou(){
     //option.value = getOption()
-    colorsChange(2)
+   // colorsChange(2)
 }
 
 
@@ -75,7 +76,7 @@ export function getTime(date : Date){
         return  Hours + "時" + minute +"分"
 }
 
-export const taskAction = ["実行前","実行中","終了"]
+
 
 
 

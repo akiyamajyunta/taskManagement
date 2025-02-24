@@ -79,7 +79,6 @@ export function openContent(id:number){
                 upDateTasksData.tasks = tasksData.tasks.filter(task => (task.id === id));
                 tasksData.tasks = tasksData.tasks.filter(task =>!(task.id === id));
                 upDateTasksData.tasks[0].contentDisplay = !upDateTasksData.tasks[0].contentDisplay
-                console.log( upDateTasksData.tasks[0].contentDisplay)
                 tasksData.tasks.push(upDateTasksData.tasks[0]);
                 localStorage.setItem('TasksData', JSON.stringify(tasksData));
     }
@@ -88,7 +87,6 @@ export function openContent(id:number){
 export function sortTask(sortingPattern:number ){
     const rawData = localStorage.getItem('TasksData')
 if (window.confirm("並べ変えますか？")){  
-
     if(rawData == null){
     }else{
         const tasksData: {tasks: Tasks} = JSON.parse(rawData);
@@ -136,15 +134,21 @@ export function movingAfterSortTask(){
 //localStorage.setItem('option', JSON.stringify(option));
 export function  changeColor(SendThemeColor:number){
     const rawData = localStorage.getItem('option')
-    if(rawData == null){
-    }else{
-        localStorage.setItem('option', JSON.stringify(option));
-        const upDateOptionData  = JSON.parse(rawData);
+   // console.log(rawData)
+    if(rawData != null){
+    const upDateOptionData = JSON.parse(rawData);
                 upDateOptionData.themeColor = SendThemeColor
+                console.log(JSON.stringify(upDateOptionData.themeColor))
                 localStorage.setItem('option', JSON.stringify(upDateOptionData));
-                
+    }else{
+            const newData = option
+                localStorage.setItem('option', JSON.stringify(newData));
     }
 }
+
+
+
+
 
 export function getOption(): Option {
     const rawData = localStorage.getItem('option')
@@ -195,7 +199,8 @@ export function colorsChange(color:number){
             colorTheme.value = 'mono'
             break
     }
-    changeColor(color)      
+    alert("aaa")
+        changeColor(color)      
        option.value = getOption()
     //console.log(JSON.stringify(option.value))
 }

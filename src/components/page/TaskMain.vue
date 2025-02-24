@@ -22,7 +22,6 @@ import { kidou } from '@/scripts/input';
 
 onMounted(loadTasks);
 onMounted(kidou)
-// option.value = getOption()
 
 </script>
 

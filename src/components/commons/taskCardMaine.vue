@@ -107,8 +107,6 @@ import { photoCollection } from '@/scripts/imgs';
 
 const props = defineProps<{taskType:string}>();
 
-
-
 function openContents(id:number){
     task.value.contentDisplay =!task.value.contentDisplay
     console.log("open"+ task.value.contentDisplay )

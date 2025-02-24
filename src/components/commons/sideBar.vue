@@ -46,12 +46,12 @@
                     class="sendOption"
                     flat
                     tile
-                    @click="allDelet()">全てのデータを消す</v-btn>
+                    @click="allDelete()">全てのデータを消す</v-btn>
         </ul>            
     </v-card>
 </template>
 <script setup lang="ts">
-//夏　チョコミント　京都　アメリカ　イタリア　モノ
+
 import { sideBar,loadTasks,CardSize,CardSizeVolume } from '@/scripts/input';
 import { colorsChange } from '@/scripts/record';
 
@@ -61,7 +61,7 @@ function OpenColorVolume(){
     CardSizeVolume.value =! CardSizeVolume.value
 }
 
-function allDelet(){
+function allDelete(){
     if (window.confirm("全てのデータを消しますか？")) {
         localStorage.removeItem('TasksData');
         loadTasks()
