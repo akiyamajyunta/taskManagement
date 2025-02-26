@@ -10,7 +10,7 @@
                     :append-icon="''"
                 ></v-date-input>
         </div> 
-        <div class="d-flex flex-row relative timeFelid" style="width: 50%;"   v-if="task.timeDisplay">
+        <div class="d-flex flex-row relative timeFelid" style="width: 50%;" v-if="task.timeDisplay">
             <v-text-field
                 v-if="task.timeDisplay"
                 label="時間"

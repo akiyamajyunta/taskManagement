@@ -3,12 +3,12 @@
             :color="colors[colorTheme].cardTypeBackGrand"  
     >
         <p class="text-center">{{ props.taskType}}</p>
-            <taskCardMaine  :taskType="props.taskType" />
+            <taskCardMaine  :taskType="props.taskType" />    
     </v-card>
 </template>
 <script setup lang="ts">
 import { colors,colorTheme } from '@/scripts/record';
-import taskCardMaine from './taskCardMaine.vue';
+import taskCardMaine from './taskCardMain.vue';
 
 const props = defineProps<{taskType:string}>();
 

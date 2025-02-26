@@ -3,8 +3,18 @@ import type { Task,Tasks,Option} from "./types";
 import { setTask, getTasks ,getOption, colorsChange} from '@/scripts/record';
 import { changeColor } from "@/scripts/record";
 
-export const task = ref<Task>({title: "", content: "" , star:3, date: new Date(), time: new Date(), particle :"",
-                                dateDisplay:false, timeDisplay:false, contentDisplay:false, action: "another" ,id : 0 ,position : 1});
+export const task = ref<Task>({title: "", 
+                                content: "" , 
+                                star:3, 
+                                date: new Date(), 
+                                time: new Date(), 
+                                particle :"",
+                                dateDisplay:false, 
+                                timeDisplay:false, 
+                                contentDisplay:false,
+                                action: "another",
+                                id : 0 ,
+                                position : 1});
 
 export const option = ref<Option>({themeColor:1,size:300})                               
 export const taskAction = ["実行前","実行中","終了"]

@@ -1,9 +1,14 @@
 <template>
     <v-container class="relative  mt-10  flex  justify-center">
-        <v-card :style="{width: CardSize+'px'}" :color="colors[colorTheme].head"  
-        v-for="t in tasks" :key="t.title" class="flex" elevation="4"> 
-            <v-card :style="{width: 95+'%',height:90+'%'}" class="mx-auto mt-1" :color="colors[colorTheme].MainCard"  
-                                v-if="movingCardJuge(props.taskType,t.position)">
+        <v-card :style="{width: CardSize+'px'}" 
+                :color="colors[colorTheme].head"  
+                    class="flex mx-auto" 
+
+                v-for="t in tasks" :key="t.title" > 
+            <v-card :style="{width: 95+'%',height:90+'%'}" 
+                    class="mx-auto mt-1" 
+                    :color="colors[colorTheme].MainCard"  
+                    v-if="movingCardJuge(props.taskType,t.position)">
                 <template v-slot:prepend>
                     <v-avatar 
                         tile

@@ -1,9 +1,14 @@
 <template>
     <v-card class="startField mx-auto" tile flat :color="colors[colorTheme].head">
             <v-btn icon="mdi-menu" size="large" 
-                    tile:color="colors[colorTheme].head" @click="sideBar" ></v-btn>
-                <v-btn icon="mdi-pen" size="large" tile  
-                        class="mr-100" :color="colors[colorTheme].head" 
+                    tile
+                    :color="colors[colorTheme].head"
+                    @click="sideBar" ></v-btn>
+                <v-btn icon="mdi-pen" 
+                        size="large" 
+                        tile  
+                        class="mr-100" 
+                        :color="colors[colorTheme].head" 
                         @click="curtain()"></v-btn>
                 <v-menu>
                     <template v-slot:activator="{ props }">
@@ -11,6 +16,7 @@
                             v-bind="props"
                             icon="mdi-sort"
                             size="large"
+                            tile
                             :color="colors[colorTheme].head" 
                         ></v-btn>
                     </template>
