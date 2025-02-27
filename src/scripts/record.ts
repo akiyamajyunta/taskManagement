@@ -1,11 +1,6 @@
 import { ref } from "vue";
 import { loadTasks, sortPatternStore ,option } from "./input";
-import type { Task, Tasks, ColorsName, Option} from "./types";
-
-
-//changeColor getOption
-
-
+import type { Task, Tasks, ColorsName} from "./types";
 
 
 export function setTask(task: Task) {
@@ -28,7 +23,7 @@ export function setTask(task: Task) {
                 localStorage.setItem('TasksData', JSON.stringify(tasksData));
             };
 }}
-//titelは20文字以内、textは140以内に収めるとする。
+
 
 export function getTasks(): Tasks {
     const rawData = localStorage.getItem('TasksData')
@@ -54,7 +49,6 @@ if(rawData == null){
 }
 
 
-//
 export function  MovingTask(id:number,position:number){
     const rawData = localStorage.getItem('TasksData')
     if(rawData == null){
@@ -91,6 +85,9 @@ if (window.confirm("並べ変えますか？")){
     }else{
         const tasksData: {tasks: Tasks} = JSON.parse(rawData);
         switch (sortingPattern) {
+        case 0:
+            tasksData.tasks.sort((a,b) =>  (b.id -  a.id))
+            break
         case 1:
             tasksData.tasks.sort((a,b) => a.title.localeCompare(b.title, 'ja'))
             break
@@ -112,8 +109,12 @@ export function movingAfterSortTask(){
     const rawData = localStorage.getItem('TasksData')
     if(rawData == null){
     }else{
+        console.log("ソート"+sortPatternStore.value)
         const tasksData: {tasks: Tasks} = JSON.parse(rawData);
         switch (sortPatternStore.value) {
+        case 0:
+            tasksData.tasks.sort((a,b) =>  (b.id -  a.id))
+            break
         case 1:
             tasksData.tasks.sort((a,b) => a.title.localeCompare(b.title, 'ja'))
             break
@@ -129,9 +130,6 @@ export function movingAfterSortTask(){
     loadTasks()
 }
 
-
-
-//localStorage.setItem('option', JSON.stringify(option));
 export function  changeColor(SendThemeColor:number){
     const rawData = localStorage.getItem('option')
    // console.log(rawData)
@@ -200,7 +198,5 @@ export function colorsChange(color:number){
             break
     }
         changeColor(color)      
-        //option.value.themeColor = getOption()
-
 }
 

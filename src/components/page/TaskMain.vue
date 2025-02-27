@@ -14,14 +14,14 @@
 <script setup lang="ts">
 import { loadTasks,taskAction} from '@/scripts/input';
 import  TaskHeder from '../commons/TaskHeder.vue';
-import inputCardMain from '../commons/inputCardMain.vue';
+import inputCardMain from '../commons/inputCard/inputCardMain.vue';
 import { colors,colorTheme} from '@/scripts/record';
 import TaskType from '../commons/TaskType.vue';
 import { onMounted } from 'vue';
-import { kidou } from '@/scripts/input';
+import { setArt } from '@/scripts/input';
 
 onMounted(loadTasks);
-onMounted(kidou)
+onMounted(setArt)
 
 </script>
 

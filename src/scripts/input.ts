@@ -1,7 +1,6 @@
 import { ref } from "vue";
 import type { Task,Tasks,Option} from "./types";
 import { setTask, getTasks ,getOption, colorsChange} from '@/scripts/record';
-import { changeColor } from "@/scripts/record";
 
 export const task = ref<Task>({title: "", 
                                 content: "" , 
@@ -47,9 +46,9 @@ export function loadTasks(){
     inputForum.value = false;
 }//taskの追加の時に実行。loadTasksdで表示される
 
-export function kidou(){
+export function setArt(){
     option.value.themeColor = getOption()
-   colorsChange(option.value.themeColor)
+    colorsChange(option.value.themeColor)
 }
 
 
@@ -62,15 +61,6 @@ export function reset(){
     task.value.action = "その他"
 }
 
-export function CalendarReset(){
-    task.value.dateDisplay = !task.value.dateDisplay
-}
-
-
-export function sideBar(){
-    menubar.value =!  menubar.value
-}
-
 export function getData(date: Date):string{
     const calenders  = new Date(date)
     const year = calenders.getFullYear();
@@ -79,16 +69,3 @@ export function getData(date: Date):string{
     console.log( year +"年"+month + "月" + day + "日")
         return  String(year +"年"+month + "月" + day + "日")
 }
-
-export function getTime(date : Date){
-    const calenders  = date
-    const Hours = calenders.getHours();
-    const minute = calenders.getMinutes();    
-        return  Hours + "時" + minute +"分"
-}
-
-
-
-
-
-

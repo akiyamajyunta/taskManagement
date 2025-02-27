@@ -1,12 +1,12 @@
 <template>
     <v-card class="menuBar" color="while"  >
         <v-btn
-        tile
-        flat
-        icon="mdi-menu" 
-        size="large"
-        @click="sideBar"
-        ></v-btn>
+            tile
+            flat
+            icon="mdi-menu" 
+            size="large"
+            @click="menubar=false">
+        </v-btn>
         <ul class="nav-list mt-10">
             <v-menu>
                 <template v-slot:activator="{ props }">
@@ -33,26 +33,38 @@
                 flat
                 tile
                 @click="OpenColorVolume"
-            >  <v-icon>{{ CardSizeVolume ? 'mdi-chevron-down' : 'mdi-chevron-up' }}</v-icon>
-            カードの大きさを選択
-        </v-btn>
-                <v-card  class="cardSizeVolume"  flat tile  v-if="CardSizeVolume">
-                    <div class="mt-5">
-                        <input type="range" min="200" max="400" value="50" v-model="CardSize "/>
-                        <p class="flex text-center">{{ CardSize }}</p>
-                    </div>
-                </v-card>
-                <v-btn 
-                    class="sendOption"
-                    flat
-                    tile
-                    @click="allDelete()">全てのデータを消す</v-btn>
+                ><v-icon>{{ CardSizeVolume ? 'mdi-chevron-down' : 'mdi-chevron-up' }}
+                </v-icon>カードの大きさを選択
+            </v-btn>
+            <v-card 
+                    class="cardSizeVolume"  
+                    flat tile  
+                    v-if="CardSizeVolume">
+                <div class="mt-5">
+                    <input type="range" 
+                            min="200" 
+                            max="400" 
+                            value="50"
+                            class="w-80 mx-5"
+                            v-model="CardSize "/>
+                    <p class="flex text-center">
+                        {{ CardSize }}
+                    </p>
+                </div>
+            
+            </v-card>
+            <v-btn 
+                class="sendOption"
+                flat
+                tile
+                @click="allDelete">全てのデータを消す
+            </v-btn>
         </ul>            
     </v-card>
 </template>
 <script setup lang="ts">
 
-import { sideBar,loadTasks,CardSize,CardSizeVolume } from '@/scripts/input';
+import { loadTasks,CardSize,CardSizeVolume,menubar } from '@/scripts/input';
 import { colorsChange } from '@/scripts/record';
 
 
@@ -68,7 +80,6 @@ function allDelete(){
 }
 }
 
-//console.log(colorsTest[testSend.value]['head'])
 </script>
 
 
@@ -92,5 +103,11 @@ function allDelete(){
     border-bottom: black 1px solid; 
 
 }
+.center {
+    width: fit-content;
+    margin: auto;
+    height: 10px;
+}
+
 
 </style>

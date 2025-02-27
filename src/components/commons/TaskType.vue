@@ -8,7 +8,7 @@
 </template>
 <script setup lang="ts">
 import { colors,colorTheme } from '@/scripts/record';
-import taskCardMaine from './taskCardMain.vue';
+import taskCardMaine from './taskCard/CardMain.vue';
 
 const props = defineProps<{taskType:string}>();
 

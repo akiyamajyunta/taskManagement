@@ -3,6 +3,8 @@ export type Task = {title: string, content: string,star:number,
                     dateDisplay:boolean, timeDisplay:boolean,
                     contentDisplay:boolean,
                     action:string  ,id : number, position : number }
+export type Tasks = Task[];  
+
 export type Option = {
     themeColor : number,
     size : number
@@ -28,6 +30,5 @@ export type ColorsName = {
     mono:ColorsType,
 };
 
-//kyoto America Italy mono
-export type Tasks = Task[];
+
 
