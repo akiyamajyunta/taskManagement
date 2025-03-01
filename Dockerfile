@@ -22,10 +22,11 @@
 # # Start the app using serve command
 # CMD [ "serve", "-s", "build" ]
 
-FROM node:23.8.0-bullseye
+FROM node:23.9.0-slim
 
+WORKDIR /app
 COPY ./ .
-
+RUN rm -rf node_modules
 RUN npm i
 
 CMD ["npm", "run", "dev"]
