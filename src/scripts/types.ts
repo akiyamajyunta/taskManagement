@@ -24,7 +24,6 @@ export type ColorsType = {
 export type ColorsName = {
     Antarctic: ColorsType,
     chocMint : ColorsType
-    kyoto : ColorsType,
     Italy:ColorsType,
     America : ColorsType,
     mono:ColorsType,

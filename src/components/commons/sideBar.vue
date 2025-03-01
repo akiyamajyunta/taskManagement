@@ -22,10 +22,9 @@
                 <v-list>
                     <v-list-item key="1" value="1" title="南極" @click="colorsChange(1)"/>
                     <v-list-item key="1" value="2" title="チョコミント" @click="colorsChange(2)"/>
-                    <v-list-item key="1" value="3" title="京都" @click="colorsChange(3)"/>
-                    <v-list-item key="1" value="4" title="アメリカ" @click="colorsChange(4)"/>
-                    <v-list-item key="1" value="5" title="イタリア" @click="colorsChange(5)"/>
-                    <v-list-item key="1" value="6" title="モノ" @click="colorsChange(6)"/>
+                    <v-list-item key="1" value="4" title="アメリカ" @click="colorsChange(3)"/>
+                    <v-list-item key="1" value="5" title="イタリア" @click="colorsChange(4)"/>
+                    <v-list-item key="1" value="6" title="モノ" @click="colorsChange(5)"/>
                 </v-list>
             </v-menu>
             <v-btn
