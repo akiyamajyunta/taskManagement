@@ -1,8 +1,8 @@
 <template>
-    <v-container class="relative mt-n10 flex justify-center">
+    <v-container class="relative mt-n1 flex justify-center">
         <v-card :style="{width: CardSize+'px'}" 
                 :color="colors[colorTheme].head"  
-                class="flex mx-auto mt-3" 
+                    class="flex mx-auto mt-3"
                 v-for="t in tasks" :key="t.title" > 
             <v-card :style="{width: 95+'%',height:90+'%'}" 
                     class="mx-auto mt-1" 

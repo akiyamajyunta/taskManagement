@@ -1,5 +1,5 @@
 <template>
-    <v-card class="taskType flex justify-center"
+    <v-card class="taskType flex justify-center mt-n1"
             :color="colors[colorTheme].cardTypeBackGrand"  
     >
         <p class="text-center">{{ props.taskType}}</p>
@@ -17,10 +17,10 @@ const props = defineProps<{taskType:string}>();
 
 .taskType{
 width: 30%;
-height: 100%;
-top:12%;
+height: 90%;
+overflow: auto;  
+top:100px;
 margin:1%;
-background-color: rgb(255, 255, 255);
 }
 
 @media (max-width: 1020px) {

@@ -1,5 +1,5 @@
 export type Task = {title: string, content: string,star:number,
-                    date:Date, time:Date, particle : string,
+                    date:Date, time:string, particle : string,
                     dateDisplay:boolean, timeDisplay:boolean,
                     contentDisplay:boolean,
                     action:string  ,id : number, position : number }
